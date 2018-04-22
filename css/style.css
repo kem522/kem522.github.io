@@ -1,4 +1,76 @@
-body {
-  background-color: dodgerblue;
-  color: white;
+body, html {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Projects */
+.project {
+  height: 300px;
+  width: 300px;
+  color:black;
+  position: relative;
+  transition: height 0.5s, width 0.5s;
+  margin: 0 auto;
+}
+
+.background {
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 100%;
+  height:100%;
+  background-position: center;
+  background-size: cover;
+  z-index:0;
+  opacity: 0.5;
+}
+
+.content {
+  padding: 20px;
+  opacity: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s;
+}
+
+.project:hover {
+  height: 350px;
+  weight: 350px;
+  transition: height 0.5s, width 0.5s;
+}
+
+.project:hover .background {
+  opacity: 0.2;
+  transition: opacity 0.5s;
+}
+
+.project:hover .content {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#one {
+  background-image: url('../images/tetris.jpg');
+}
+
+#two {
+  background-image: url('../images/basicgram.jpg');
+}
+
+#three {
+  background-image: url('../images/matedate.jpg');
+}
+
+#four {
+  background-image: url('../images/nostalgiafy.jpg');
+  background-position: left;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  .hero-body {
+    height: 100vh;
+    display: flex;
+    align-items:center;
+  }
 }
