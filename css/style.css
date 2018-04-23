@@ -35,7 +35,7 @@ body, html {
 
 .project:hover {
   height: 350px;
-  weight: 350px;
+  width: 350px;
   transition: height 0.5s, width 0.5s;
 }
 
