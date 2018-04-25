@@ -2,31 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katherine Moore</title>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="./js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-    <title>My Personal Website</title>
   </head>
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div class="navbar-menu">
-        <ul class="navbar-end">
-          <li class="navbar-item"><a href="#about">About</a></li>
-          <li class="navbar-item"><a href="#projects">Projects</a></li>
-          <li class="navbar-item"><a href="###">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
     <main>
-      <section class="hero is-large">
+      <section class="hero is-large" id="home">
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
@@ -38,50 +26,68 @@
           </div>
         </div>
       </section>
-      <section id="about">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
 
-      </section>
-      <section id="projects" class="columns is-multiline">
-        <div class="column is-half">
-          <div class="project">
-            <div class="background" id="one"></div>
-            <div class="content">
-              <h2>Tetris</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu">
+          <ul class="navbar-end">
+            <li class="navbar-item"><a href="#home">Home</a></li>
+            <li class="navbar-item"><a href="#projects">Projects</a></li>
+            <li class="navbar-item"><a href="#voluntary">Voluntary Work</a></li>
+            <!-- <li class="navbar-item"><a href="#contact">Contact</a></li> -->
+          </ul>
+        </div>
+      </nav>
+        <div class="content">
+        <section id="projects" class="columns is-multiline">
+          <div class="column is-half">
+            <div class="project">
+              <div class="background" id="one"></div>
+              <div class="description">
+                <h2>Tetris</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="column is-half">
-          <div class="project">
-            <div class="background" id="two"></div>
-            <div class="content">
-              <h2>Basicgram</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="column is-half">
+            <div class="project">
+              <div class="background" id="two"></div>
+              <div class="description">
+                <h2>Basicgram</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+            </div>
+          <div class="column is-half">
+            <div class="project">
+              <div class="background" id="three"></div>
+              <div class="description">
+                <h2>MateDate</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
             </div>
           </div>
-          </div>
-        </div>
-        <div class="column is-half">
-          <div class="project">
-            <div class="background" id="three"></div>
-            <div class="content">
-              <h2>MateDate</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="column is-half">
+            <div class="project">
+              <div class="background" id="four"></div>
+              <div class="description">
+                <h2>Nostalgiafy</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
             </div>
           </div>
-          </div>
-        </div>
-        <div class="column is-half">
-          <div class="project">
-            <div class="background" id="four"></div>
-            <div class="content">
-              <h2>Nostalgiafy</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-          </div>
-          </div>
-        </div>
-      </section>
+        </section>
+        <section id="voluntary">
+
+        </section>
+      </div>
     </main>
 
 
