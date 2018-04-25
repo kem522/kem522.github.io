@@ -14,6 +14,11 @@ section {
 }
 
 /* Navbar */
+
+.navbar-menu {
+  margin: 0 auto !important;
+}
+
 .sticky {
   position: fixed !important;
   top: 0;
@@ -36,10 +41,33 @@ section {
   color: orange;
 }
 
+
+/* #icons li a {
+  position:relative;
+} */
+
+#icons li a > p {
+  font-size: 16px;
+  max-width: 0px;
+  overflow: hidden;
+  margin: 0 5px 0 0;
+  /* line-height: 17px; */
+  display:inline-block;
+  /* position:absolute;
+  bottom:0;
+  right: 16px; */
+}
+
+#icons li a:hover > p {
+  max-width: 230px;
+  transition: max-width 1s linear;
+}
+
+
 /* Projects */
 .project {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 400px;
   color:black;
   position: relative;
   transition: height 0.5s, width 0.5s;
@@ -69,8 +97,8 @@ section {
 }
 
 .project:hover {
-  height: 350px;
-  width: 350px;
+  height: 300px;
+  width: 450px;
   transition: height 0.5s, width 0.5s;
 }
 
@@ -101,10 +129,23 @@ section {
   background-position: left;
 }
 
+/* Voluntary */
+#ctp {
+  background-image: url('../images/changing-the-present.jpg');
+}
+
+#textbooks {
+  background-image: url('../images/free-the-textbooks.jpg');
+}
+
+#leo {
+  background-image: url('../images/leo-site.jpg');
+}
 /* Media Queries */
 @media only screen and (max-width: 600px) {
   .hero-body {
     height: 100vh;
+    width: 100%;
     display: flex;
     align-items:center;
   }

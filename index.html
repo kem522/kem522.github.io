@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Katherine Moore</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <script type="text/javascript" src="slick/slick.min.js"></script>
     <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -14,18 +17,6 @@
   </head>
   <body>
     <main>
-      <section class="hero is-large" id="home">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              Katie Moore
-            </h1>
-            <h2 class="subtitle">
-              Junior Full Stack Web Developer
-            </h2>
-          </div>
-        </div>
-      </section>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
 
@@ -37,14 +28,33 @@
         </div>
 
         <div class="navbar-menu">
-          <ul class="navbar-end">
+          <ul class="navbar-start">
             <li class="navbar-item"><a href="#home">Home</a></li>
             <li class="navbar-item"><a href="#projects">Projects</a></li>
             <li class="navbar-item"><a href="#voluntary">Voluntary Work</a></li>
             <!-- <li class="navbar-item"><a href="#contact">Contact</a></li> -->
           </ul>
+
+          <ul class="navbar-end" id="icons">
+            <li class="navbar-item"><a><p>github.com/kem522</p><i class="fab fa-github"></i></a></li>
+            <li class="navbar-item"><a href="#projects"><p>linkedin.com/katherinemoore2</p><i class="fab fa-linkedin-in"></i></a></li>
+            <li class="navbar-item"><a href="#voluntary"><p>kemoore1431@gmail.com</p><i class="far fa-envelope"></i></a></li>
+            <!-- <li class="navbar-item"><a href="#contact">Contact</a></li> -->
+          </ul>
         </div>
       </nav>
+      <section class="hero is-large" id="home">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Katie Moore
+            </h1>
+            <h2 class="subtitle">
+              Full Stack Web Developer
+            </h2>
+          </div>
+        </div>
+      </section>
         <div class="content">
         <section id="projects" class="columns is-multiline">
           <div class="column is-half">
@@ -84,8 +94,34 @@
             </div>
           </div>
         </section>
-        <section id="voluntary">
-
+        <section id="voluntary" class="columns is-multiline">
+          <div class="column is-half">
+            <div class="project">
+              <div class="background" id="ctp"></div>
+              <div class="description">
+                <h2>Changing The Present</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="project">
+              <div class="background" id="textbooks"></div>
+              <div class="description">
+                <h2>Free the Textbooks</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-full">
+            <div class="project">
+              <div class="background" id="leo"></div>
+              <div class="description">
+                <h2>Leo-Site</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>

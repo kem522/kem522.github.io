@@ -7,8 +7,6 @@ $(() => {
     myFunction();
     onScroll();
   };
-
-
   // Get the navbar
   var $navbar = $('.navbar');
 
@@ -44,26 +42,20 @@ $(() => {
     });
   });
 
-  // $(document).on('click', 'a[href^="#"]', function (event) {
-  //   event.preventDefault();
-  //
-  //   $('html, body').animate({
-  //     scrollTop: $($.attr(this, 'href')).offset().top
-  //   }, 500);
-  // });
 
   //highlight navbar items on scroll
   function onScroll(){
     const scrollPos = $(document).scrollTop();
-    $('.navbar-end a').each(function () {
+    $('.navbar-start a').each(function () {
       const currLink = $(this);
       const refElement = $(currLink.attr('href'));
       if (refElement.position().top <= scrollPos + 52 && refElement.position().top + refElement.height() > scrollPos) {
-        $('.navbar-end ul li a').removeClass('active');
+        $('.navbar-start ul li a').removeClass('active');
         currLink.addClass('active');
       } else{
         currLink.removeClass('active');
       }
     });
   }
+
 });
