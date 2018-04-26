@@ -2,12 +2,6 @@ body, html {
   font-family: 'Lato', sans-serif;
 }
 
-section {
-  padding-top: 52px;
-  height: 100vh;
-  width: 100%;
-}
-
 .hidden {
   display: none;
 }
@@ -16,12 +10,41 @@ section {
   height: 100%;
 }
 
+.container {
+  padding: 0 5px;
+}
+
+.subtitle {
+  text-align:center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 /* Hero */
+nav.navbar {
+ box-shadow:none;
+}
+
+.navbar-start {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .hero-body {
-  height: calc(100vh - 52px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+#home .title {
+  font-size: 52px;
+}
+
+h2.title {
+  font-weight:normal;
 }
 
 /* Navbar */
+
 
 .navbar-menu {
   margin: 0 auto !important;
@@ -84,6 +107,21 @@ section {
   padding: 10px 30px;
 }
 
+#about ul {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#about ul li {
+  width: 30%;
+  margin: 10px 0;
+  display: inline-block;
+  /* margin: 5px 50px 15px 0; */
+  text-align: center;
+}
 
 /* Projects */
 .project {
@@ -174,7 +212,32 @@ section {
 #leo {
   background-image: url('../images/leo-site.jpg');
 }
+
+/* Footer */
+footer {
+  margin-top: 20px;
+}
+
+footer ul {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer ul li p {
+  display: inline-block;
+  margin-left: 5px;
+}
+
 /* Media Queries */
+@media only screen and (min-width: 1088px) {
+  section {
+    padding-top: 52px;
+    height: 100vh;
+    width: 100%;
+  }
+}
 @media only screen and (max-width: 920px) {
   .project {
     height: 300px;
@@ -194,5 +257,19 @@ section {
     width: 100%;
     display: flex;
     align-items:center;
+    justify-content: center;
+  }
+
+  .project .background {
+    opacity: 0.2;
+  }
+
+  .project .description {
+    opacity: 1;
+  }
+
+  .project{
+    height: 350px;
+    width: 350px;
   }
 }
