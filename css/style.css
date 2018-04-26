@@ -4,8 +4,16 @@ body, html {
 
 section {
   padding-top: 52px;
-  height: calc(100vh - 52px);
+  height: 100vh;
   width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.full-height {
+  height: 100%;
 }
 
 /* Hero */
@@ -63,6 +71,19 @@ section {
   transition: max-width 1s linear;
 }
 
+/* About */
+.flexy {
+  display:flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.devicon {
+  font-size: 30px;
+  padding: 10px 30px;
+}
+
 
 /* Projects */
 .project {
@@ -82,18 +103,30 @@ section {
   height:100%;
   background-position: center;
   background-size: cover;
-  z-index:0;
+  z-index:-1;
   opacity: 0.5;
 }
 
 .description {
-  padding: 20px;
+  padding: 10px;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   transition: opacity 0.5s;
   text-align: center;
+}
+
+.description > h2 {
+  margin-bottom: 2px !important;
+}
+
+.description p > span {
+  display:block;
+}
+
+.description p span > a {
+  margin: 0 10px;
 }
 
 .project:hover {
@@ -142,6 +175,19 @@ section {
   background-image: url('../images/leo-site.jpg');
 }
 /* Media Queries */
+@media only screen and (max-width: 920px) {
+  .project {
+    height: 300px;
+    width: 300px;
+  }
+
+  .project:hover{
+    height: 350px;
+    width: 350px;
+  }
+}
+
+
 @media only screen and (max-width: 600px) {
   .hero-body {
     height: 100vh;

@@ -15,7 +15,7 @@ $(() => {
 
   // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
   function myFunction() {
-    if (window.pageYOffset >= sticky - 52) {
+    if (window.pageYOffset >= sticky) {
       $navbar.addClass('sticky');
     } else {
       $navbar.removeClass('sticky');
@@ -58,4 +58,21 @@ $(() => {
     });
   }
 
+
+  //Media Queries
+  //Subtitles when navbar burger is in effect
+  function mediaSize() {
+    /* Set the matchMedia */
+    if ($(window).width() < 1088) {
+      $('.subtitle').each((i, subtitle) => {
+        $(subtitle).removeClass('hidden');
+      });
+    } else {
+      $('.subtitle').each((i, subtitle) => {
+        if (!$(subtitle).hasClass('hidden')) $(subtitle).addClass('hidden');
+      });
+    }
+  }
+  mediaSize();
+  window.addEventListener('resize', mediaSize, false);
 });
