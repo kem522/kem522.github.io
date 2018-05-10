@@ -68,9 +68,11 @@ $(() => {
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
         var $target = document.getElementById(target);
+        var $navEnd = $('.navbar-end');
         // Toggle the class on both the "navbar-burger" and the "navbar-menu"
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
+        $navEnd[0].classList.toggle('hidden');
       });
     });
   }
