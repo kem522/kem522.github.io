@@ -86,6 +86,9 @@ $(() => {
       $('.subtitle').each((i, subtitle) => {
         $(subtitle).removeClass('hidden');
       });
+
+      const $navStart = $('.navbar-start');
+      if($navStart.children().length === 4) $navStart.append('<li class="navbar-item"><a href="#contact">Contact</a></li>');
     } else {
       $('.subtitle').each((i, subtitle) => {
         if (!$(subtitle).hasClass('hidden')) $(subtitle).addClass('hidden');

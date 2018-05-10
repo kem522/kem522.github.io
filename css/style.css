@@ -1,5 +1,14 @@
 body, html {
   font-family: 'Lato', sans-serif;
+  color: #4A5043 !important;
+}
+
+a {
+  color: #4A5043 !important;
+}
+
+a:hover > p {
+  color: #4A5043 !important;
 }
 
 .hidden {
@@ -21,6 +30,21 @@ body, html {
 }
 
 /* Hero */
+.hero-body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#home .title {
+  font-size: 52px;
+  color: #4A5043 
+}
+
+h2.title {
+  font-weight:normal;
+}
+
+/* Navbar */
 nav.navbar {
  box-shadow:none;
 }
@@ -29,22 +53,6 @@ nav.navbar {
   text-transform: uppercase;
   font-weight: bold;
 }
-
-.hero-body {
-  margin: 0 auto;
-  text-align: center;
-}
-
-#home .title {
-  font-size: 52px;
-}
-
-h2.title {
-  font-weight:normal;
-}
-
-/* Navbar */
-
 
 .navbar-menu {
   margin: 0 auto !important;
@@ -69,11 +77,11 @@ h2.title {
 }
 
 .active {
-  color: orange;
+  color: #8AA1B1 !important;
 }
 
-.navbar-item: hover {
-  color:orange !important;
+.navbar-item:hover, a:hover {
+  color:#8AA1B1 !important;
 }
 
 
