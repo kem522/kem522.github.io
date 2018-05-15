@@ -6,6 +6,7 @@ $(() => {
   window.onscroll = function() {
     myFunction();
     onScroll();
+    // hero();
   };
   // Get the navbar
   var $navbar = $('.navbar');
@@ -77,22 +78,38 @@ $(() => {
     });
   }
 
+  //Disappearing Hero
+  // function hero(){
+  //   const scrollPos = $(document).scrollTop();
+  //   $('.navbar-start a').each(function () {
+  //     const currLink = $(this);
+  //     const refElement = $(currLink.attr('href'));
+  //     if (refElement.position().top <= scrollPos + 52 && refElement.position().top + refElement.height() > scrollPos) {
+  //       $('.navbar-start ul li a').removeClass('active');
+  //       currLink.addClass('active');
+  //     } else{
+  //       currLink.removeClass('active');
+  //     }
+  //   });
+  // }
+
 
   //Media Queries
   //Subtitles when navbar burger is in effect
   function mediaSize() {
+    const $navStart = $('.navbar-start');
     /* Set the matchMedia */
     if ($(window).width() < 1088) {
       $('.subtitle').each((i, subtitle) => {
         $(subtitle).removeClass('hidden');
       });
 
-      const $navStart = $('.navbar-start');
       if($navStart.children().length === 4) $navStart.append('<li class="navbar-item"><a href="#contact">Contact</a></li>');
     } else {
       $('.subtitle').each((i, subtitle) => {
         if (!$(subtitle).hasClass('hidden')) $(subtitle).addClass('hidden');
       });
+      if($navStart.children().length === 5) $navStart.last().remove();
     }
   }
   mediaSize();
