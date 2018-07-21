@@ -1,6 +1,17 @@
 body, html {
   font-family: 'Lato', sans-serif;
   color: #4A5043 !important;
+  margin: 0;
+}
+
+canvas {
+  /* background-color: #003366; */
+  background-color: #002266;
+  /* z-index: -1; */
+  /* position: absolute;
+  top: 0; */
+  /* width: 100%;
+  height: 100%; */
 }
 
 a {
@@ -11,6 +22,10 @@ a:hover > p {
   color: #4A5043 !important;
 }
 
+h1.title {
+  color: white;
+}
+
 .hidden {
   display: none;
 }
@@ -19,9 +34,9 @@ a:hover > p {
   height: 100%;
 }
 
-.container {
+/* .container {
   padding: 0 5px;
-}
+} */
 
 .subtitle {
   text-align:center;
@@ -41,11 +56,13 @@ a:hover > p {
 
 h2.title {
   font-weight:normal;
+  color: white;
 }
 
 /* Navbar */
 nav.navbar {
  box-shadow:none;
+ background: transparent;
 }
 
 .navbar-start {

@@ -1,0 +1,29 @@
+{
+  "name": "kem522.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp deploy && node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kem522/kem522.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kem522/kem522.github.io/issues"
+  },
+  "homepage": "https://github.com/kem522/kem522.github.io#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "del": "^3.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^3.0.0"
+  }
+}

@@ -1,7 +1,6 @@
 $(() => {
   console.log('JS Loaded');
 
-
   //Sticky Navbar
   window.onscroll = function() {
     myFunction();
