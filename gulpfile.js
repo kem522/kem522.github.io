@@ -54,7 +54,7 @@ gulp.task('html', ['clean:html'], () => {
 
 gulp.task('css', ['clean:css'], done => {
   pump([
-    gulp.src('src/scss/style.scss'),
+    gulp.src('src/css/style.css'),
     gulpIf(!global.production, sourcemaps.init()),
     sass({ outputStyle: 'compressed' }).on('error', sass.logError),
     gulpIf(!global.production, sourcemaps.write()),
@@ -64,7 +64,7 @@ gulp.task('css', ['clean:css'], done => {
 
 gulp.task('js', ['clean:js'], done => {
   pump([
-    gulp.src('src/js/app.js'),
+    gulp.src('src/js/*.js'),
     gulpIf(!global.production, sourcemaps.init()),
     babel({
       presets: ['env']
@@ -87,8 +87,8 @@ gulp.task('default', ['build'], () => {
   gulp.watch('src/fonts/**', ['fonts']);
   gulp.watch('src/sounds/**', ['sounds']);
   gulp.watch('src/index.html', ['html']).on('change', browserSync.reload);
-  gulp.watch('src/scss/style.scss', ['css']).on('change', browserSync.reload);
-  gulp.watch('src/js/app.js', ['js']).on('change', browserSync.reload);
+  gulp.watch('src/css/style.css', ['css']).on('change', browserSync.reload);
+  gulp.watch('src/js/**', ['js']).on('change', browserSync.reload);
 
   browserSync.init({
     server: './public',

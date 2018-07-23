@@ -1,13 +1,14 @@
 body, html {
   font-family: 'Lato', sans-serif;
-  color: #4A5043 !important;
+  color: white !important;
   margin: 0;
+  background-color: #152033;
 }
 
 canvas {
-  /* background-color: #003366; */
-  background-color: #002266;
-  /* z-index: -1; */
+  /* background-color: #152033; */
+  background: transparent;
+  z-index: -1;
   /* position: absolute;
   top: 0; */
   /* width: 100%;
@@ -54,6 +55,15 @@ h1.title {
   font-size: 52px;
 }
 
+main {
+  position: relative;
+}
+
+#home {
+  position: absolute;
+  top: 0;
+}
+
 h2.title {
   font-weight:normal;
   color: white;
@@ -93,11 +103,11 @@ nav.navbar {
 }
 
 .active {
-  color: #FFDB58 !important;
+  color: white !important;
 }
 
 .navbar-item:hover, a:hover {
-  color:#FFDB58 !important;
+  color: white !important;
 }
 
 
