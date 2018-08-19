@@ -8,7 +8,7 @@ const del = require('del');
 const browserSync = require('browser-sync').create();
 const gulpIf = require('gulp-if');
 
-gulp.task('clean:css', () => {
+gulp.task('clean:scss', () => {
   return del(['public/css']);
 });
 
@@ -33,7 +33,7 @@ gulp.task('clean:sounds', () => {
 });
 
 gulp.task('fonts', ['clean:fonts'], () => {
-  return gulp.src('src/fonts/**/*')
+  return gulp.src('src/assets/fonts/**/*')
     .pipe(gulp.dest('public/fonts'));
 });
 
@@ -52,9 +52,9 @@ gulp.task('html', ['clean:html'], () => {
     .pipe(gulp.dest('public/'));
 });
 
-gulp.task('css', ['clean:css'], done => {
+gulp.task('scss', ['clean:scss'], done => {
   pump([
-    gulp.src('src/css/style.css'),
+    gulp.src('src/scss/main.scss'),
     gulpIf(!global.production, sourcemaps.init()),
     sass({ outputStyle: 'compressed' }).on('error', sass.logError),
     gulpIf(!global.production, sourcemaps.write()),
@@ -75,7 +75,7 @@ gulp.task('js', ['clean:js'], done => {
   ], done);
 });
 
-gulp.task('build', ['images', 'sounds', 'html', 'css', 'js']);
+gulp.task('build', ['images', 'fonts', 'sounds', 'html', 'scss', 'js']);
 
 gulp.task('deploy', () => {
   global.production = true;
@@ -83,11 +83,11 @@ gulp.task('deploy', () => {
 });
 
 gulp.task('default', ['build'], () => {
-  gulp.watch('src/images/**', ['images']);
-  gulp.watch('src/fonts/**', ['fonts']);
+  gulp.watch('src/assets/images/**', ['images']);
+  gulp.watch('src/assets/fonts/**', ['fonts']);
   gulp.watch('src/sounds/**', ['sounds']);
   gulp.watch('src/index.html', ['html']).on('change', browserSync.reload);
-  gulp.watch('src/css/style.css', ['css']).on('change', browserSync.reload);
+  gulp.watch('src/scss/main.scss', ['scss']).on('change', browserSync.reload);
   gulp.watch('src/js/**', ['js']).on('change', browserSync.reload);
 
   browserSync.init({

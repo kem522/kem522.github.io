@@ -1,0 +1,75 @@
+
+.close {
+  font-family: "Gilroy";
+}
+
+.burger {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  transition: transform 0.5s ease-in-out;
+  z-index: 10;
+}
+
+.burger:hover {
+  border-radius: 100%;
+  transform: scale(1.4);
+}
+
+.burger__line {
+  width: 25px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: black;
+  -webkit-transform: rotate(0deg);
+  transition: transform 1s;
+}
+
+.rotate1 {
+  -webkit-transform: rotate(45deg) translateX(25%);
+}
+
+.rotate2 {
+  -webkit-transform: rotate(-45deg) translateX(21%) translateY(1px);
+}
+
+.menu {
+  width: 100vw;
+  height: 0;
+  display: flex;
+  transition: all 1.5s ease;
+  background-color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+ul {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  list-style: none;
+}
+
+li {
+  margin: 24px;
+  text-align: center;
+  padding-left: calc(100vw + 10%);
+  transition: all 1s ease-in-out;
+  font-family: "GilroyBold";
+}
+
+.slideIn {
+  padding-left: 0;
+}
+
+.fadein {
+  opacity: 1;
+}
+
+.active {
+  height: 90vh;
+}

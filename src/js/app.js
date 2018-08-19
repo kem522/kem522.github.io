@@ -1,116 +1,49 @@
-$(() => {
-  console.log('JS Loaded');
+// variables
+const menu = document.querySelector('.menu');
+const burger = document.querySelector('.burger');
+const title = document.querySelector('h1');
 
-  //Sticky Navbar
-  window.onscroll = function() {
-    myFunction();
-    onScroll();
-    // hero();
-  };
-  // Get the navbar
-  var $navbar = $('.navbar');
-
-  // Get the offset position of the navbar
-  var sticky = $navbar.offset().top;
-
-  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-  function myFunction() {
-    if (window.pageYOffset >= sticky) {
-      $navbar.addClass('sticky');
-    } else {
-      $navbar.removeClass('sticky');
-    }
+// functions
+const onResize = function() {
+  if (window.innerWidth < 768) {
+    title.innerHTML = 'KT';
+    title.setAttribute('data-text', 'KT');
+  } else if (window.innerWidth < 1440) {
+    title.innerHTML = 'KATIE';
+    title.setAttribute('data-text', 'KATIE');
+  } else {
+    title.innerHTML = 'KATHERINE';
+    title.setAttribute('data-text', 'KATHERINE');
   }
+};
 
-  // Smooth scrolling anchor links
-  $('a[href^="#"]').on('click', function (e) {
-    e.preventDefault();
-    $(document).off('scroll');
-
-    $('a').each(function () {
-      $(this).removeClass('active');
-    });
-    $(this).addClass('active');
-
-    var target = this.hash;
-    const $target = $(target);
-    $('html, body').stop().animate({
-      'scrollTop': $target.offset().top+2
-    }, 500, 'swing', function () {
-      window.location.hash = target;
-      $(document).on('scroll', onScroll);
-    });
-  });
-
-
-  //highlight navbar items on scroll
-  function onScroll(){
-    const scrollPos = $(document).scrollTop();
-    $('.navbar-start a').each(function () {
-      const currLink = $(this);
-      const refElement = $(currLink.attr('href'));
-      if (refElement.position().top <= scrollPos + 52 && refElement.position().top + refElement.height() > scrollPos) {
-        $('.navbar-start ul li a').removeClass('active');
-        currLink.addClass('active');
-      } else{
-        currLink.removeClass('active');
-      }
-    });
-  }
-
-  // Navbar burger
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
-        var $navEnd = $('.navbar-end');
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-        $navEnd[0].classList.toggle('hidden');
+const menuAnimation = function() {
+  if (menu.classList.contains('active')) {
+    menu.classList.remove('active');
+    menu.firstElementChild.classList.remove('fadein');
+    burger.firstElementChild.classList.remove('rotate1');
+    burger.lastElementChild.classList.remove('rotate2');
+    setTimeout(() => {
+      menu.firstElementChild.childNodes.forEach(child => {
+        if (child.nodeName === 'LI') child.classList.remove('slideIn');
       });
-    });
-  }
-
-  //Disappearing Hero
-  // function hero(){
-  //   const scrollPos = $(document).scrollTop();
-  //   $('.navbar-start a').each(function () {
-  //     const currLink = $(this);
-  //     const refElement = $(currLink.attr('href'));
-  //     if (refElement.position().top <= scrollPos + 52 && refElement.position().top + refElement.height() > scrollPos) {
-  //       $('.navbar-start ul li a').removeClass('active');
-  //       currLink.addClass('active');
-  //     } else{
-  //       currLink.removeClass('active');
-  //     }
-  //   });
-  // }
-
-
-  //Media Queries
-  //Subtitles when navbar burger is in effect
-  function mediaSize() {
-    const $navStart = $('.navbar-start');
-    /* Set the matchMedia */
-    if ($(window).width() < 1088) {
-      $('.subtitle').each((i, subtitle) => {
-        $(subtitle).removeClass('hidden');
+    }, 1500);
+  } else {
+    menu.classList.add('active');
+    setTimeout(() => {
+      menu.firstElementChild.childNodes.forEach(child => {
+        if (child.nodeName === 'LI') child.classList.add('slideIn');
       });
-
-      if($navStart.children().length === 4) $navStart.append('<li class="navbar-item"><a href="#contact">Contact</a></li>');
-    } else {
-      $('.subtitle').each((i, subtitle) => {
-        if (!$(subtitle).hasClass('hidden')) $(subtitle).addClass('hidden');
-      });
-      if($navStart.children().length === 5) $navStart.last().remove();
-    }
+    }, 1500);
+    menu.firstElementChild.classList.add('fadein');
+    burger.firstElementChild.classList.add('rotate1');
+    burger.lastElementChild.classList.add('rotate2');
   }
-  mediaSize();
-  window.addEventListener('resize', mediaSize, false);
-});
+};
+
+//event listeners
+window.addEventListener('resize', onResize);
+burger.addEventListener('click', menuAnimation);
+
+//run
+onResize();

@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Light.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('../fonts/Gilroy-ExtraBold.otf') format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size: 20px;
+
+  @media (min-width: $tablet) {
+    font-size: 24px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 28px;
+  }
+
+  @media (min-width: $wide-desktop) {
+    font-size: 32px;
+  }
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: "Gilroy";
+}
+
+// main {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
