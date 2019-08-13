@@ -16,7 +16,7 @@ const head = new Zdog.Shape({
 const eye = new Zdog.Ellipse({
   addTo: head,
   diameter: 2,
-  quarters: 2, // semi-circle
+  quarters: 2,
   translate: { x: -2, y: 1, z: 4.5 },
   rotate: { z: -TAU/4 },
   color: '#636',
@@ -144,18 +144,42 @@ earPhone.copy({
   rotate: { x: -TAU/4 }
 });
 
+const hand = new Zdog.Shape({
+  addTo: head,
+  color: 'gold',
+  translate: { x: 8, y: 5, z: 5 },
+  stroke: 3
+});
+
 // Head follows mouse
 // TODO: debounce/throttle
 window.addEventListener('mousemove', (e) => {
-  const yDistance = e.pageY - illo.element.offsetTop - 200;
-  const xDistance = e.pageX - illo.element.offsetLeft - 150;
+  const element = illo.element;
+  const yDistance = e.pageY - element.offsetTop - element.offsetHeight/2;
+  const xDistance = e.pageX - element.offsetLeft - element.offsetWidth/2;
   head.rotate.x = -yDistance/1000;
   head.rotate.y = -xDistance/1000;
 });
 
 // -- animate --- //
+let motionForward = true;
 function animate() {
+  wave();
   illo.updateRenderGraph();
   requestAnimationFrame( animate );
 }
+
+function wave() {
+  if (hand.translate.y < 8 && motionForward) {
+    hand.translate.x += 0.07;
+    hand.translate.y += 0.1;
+  } else {
+    motionForward = false;
+    hand.translate.x -= 0.07;
+    hand.translate.y -= 0.1;
+  }
+
+  if (hand.translate.y <= 5) motionForward = true;
+}
+
 animate();
