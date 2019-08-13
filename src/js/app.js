@@ -1,116 +1,161 @@
-$(() => {
-  console.log('JS Loaded');
+const TAU = Zdog.TAU;
 
-  //Sticky Navbar
-  window.onscroll = function() {
-    myFunction();
-    onScroll();
-    // hero();
-  };
-  // Get the navbar
-  var $navbar = $('.navbar');
-
-  // Get the offset position of the navbar
-  var sticky = $navbar.offset().top;
-
-  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-  function myFunction() {
-    if (window.pageYOffset >= sticky) {
-      $navbar.addClass('sticky');
-    } else {
-      $navbar.removeClass('sticky');
-    }
-  }
-
-  // Smooth scrolling anchor links
-  $('a[href^="#"]').on('click', function (e) {
-    e.preventDefault();
-    $(document).off('scroll');
-
-    $('a').each(function () {
-      $(this).removeClass('active');
-    });
-    $(this).addClass('active');
-
-    var target = this.hash;
-    const $target = $(target);
-    $('html, body').stop().animate({
-      'scrollTop': $target.offset().top+2
-    }, 500, 'swing', function () {
-      window.location.hash = target;
-      $(document).on('scroll', onScroll);
-    });
-  });
-
-
-  //highlight navbar items on scroll
-  function onScroll(){
-    const scrollPos = $(document).scrollTop();
-    $('.navbar-start a').each(function () {
-      const currLink = $(this);
-      const refElement = $(currLink.attr('href'));
-      if (refElement.position().top <= scrollPos + 52 && refElement.position().top + refElement.height() > scrollPos) {
-        $('.navbar-start ul li a').removeClass('active');
-        currLink.addClass('active');
-      } else{
-        currLink.removeClass('active');
-      }
-    });
-  }
-
-  // Navbar burger
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
-        var $navEnd = $('.navbar-end');
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-        $navEnd[0].classList.toggle('hidden');
-      });
-    });
-  }
-
-  //Disappearing Hero
-  // function hero(){
-  //   const scrollPos = $(document).scrollTop();
-  //   $('.navbar-start a').each(function () {
-  //     const currLink = $(this);
-  //     const refElement = $(currLink.attr('href'));
-  //     if (refElement.position().top <= scrollPos + 52 && refElement.position().top + refElement.height() > scrollPos) {
-  //       $('.navbar-start ul li a').removeClass('active');
-  //       currLink.addClass('active');
-  //     } else{
-  //       currLink.removeClass('active');
-  //     }
-  //   });
-  // }
-
-
-  //Media Queries
-  //Subtitles when navbar burger is in effect
-  function mediaSize() {
-    const $navStart = $('.navbar-start');
-    /* Set the matchMedia */
-    if ($(window).width() < 1088) {
-      $('.subtitle').each((i, subtitle) => {
-        $(subtitle).removeClass('hidden');
-      });
-
-      if($navStart.children().length === 4) $navStart.append('<li class="navbar-item"><a href="#contact">Contact</a></li>');
-    } else {
-      $('.subtitle').each((i, subtitle) => {
-        if (!$(subtitle).hasClass('hidden')) $(subtitle).addClass('hidden');
-      });
-      if($navStart.children().length === 5) $navStart.last().remove();
-    }
-  }
-  mediaSize();
-  window.addEventListener('resize', mediaSize, false);
+const illo = new Zdog.Illustration({
+  element: '.zdog-canvas',
+  zoom: 10
 });
+
+// ---- model ---- //
+const head = new Zdog.Shape({
+  addTo: illo,
+  stroke: 12,
+  color: 'gold',
+  rotate: { y: -0.25 }
+});
+
+const eye = new Zdog.Ellipse({
+  addTo: head,
+  diameter: 2,
+  quarters: 2, // semi-circle
+  translate: { x: -2, y: 1, z: 4.5 },
+  rotate: { z: -TAU/4 },
+  color: '#636',
+  stroke: 0.5,
+  backface: false
+});
+
+const eyelash = new Zdog.Shape({
+  addTo: eye,
+  path: [
+    { x: 1 },
+    { x: 2 }
+  ],
+  translate: { y: -0.25, x: -0.5 },
+  rotate: { z: -TAU/6 },
+  stroke: 0.25,
+  color: '#636'
+});
+
+eyelash.copy({
+  translate: { y: -0.3 },
+  path: [
+    { x: 1 },
+    { x: 1.5 }
+  ],
+  stroke: 0.25
+});
+
+const secondEye = eye.copy({
+  translate: { x: 2, y: 1, z: 4.5 },
+  color: '#636'
+});
+
+const secondEyelash = new Zdog.Shape({
+  addTo: secondEye,
+  path: [
+    { x: 1.75 },
+    { x: 2.75 }
+  ],
+  translate: { y: -0.5, x: -0.9 },
+  rotate: { z: TAU/6 },
+  stroke: 0.25,
+  color: '#636'
+});
+
+secondEyelash.copy({
+  translate: { y: 0.2 },
+  path: [
+    { x: 1 },
+    { x: 1.5 }
+  ],
+  stroke: 0.25
+});
+
+// smile
+new Zdog.Ellipse({
+  addTo: head,
+  diameter: 3,
+  quarters: 2,
+  translate: { y: 2.5, z: 4.5 },
+  rotate: { z: TAU/4 },
+  closed: true,
+  color: '#FED',
+  stroke: 0.5,
+  fill: true,
+  backface: false
+});
+
+new Zdog.Shape({
+  addTo: head,
+  path: [
+    { x: 0, y: -6, z: 2 },   // start
+    { arc: [
+      { x: 6, y: -6, z: 2  }, // corner
+      { x: 6, y: 0, z: 2  } // end point
+    ]},
+    { arc: [ // start next arc from last end point
+      { x: 6, y: 6, z: 2  }, // corner
+      { x: 8, y: 6, z: 2  } // end point
+    ]}
+  ],
+  closed: false,
+  stroke: 2,
+  color: '#636'
+});
+
+new Zdog.Shape({
+  addTo: head,
+  path: [
+    { x: 0, y: -6, z: 2 },   // start
+    { arc: [
+      { x: -6, y: -6, z: 2  }, // corner
+      { x: -6, y: 0, z: 2  } // end point
+    ]},
+    { arc: [ // start next arc from last end point
+      { x: -6, y: 6, z: 2  }, // corner
+      { x: -8, y: 6, z: 2  } // end point
+    ]}
+  ],
+  closed: false,
+  stroke: 2,
+  color: '#636'
+});
+
+const headPhones = new Zdog.Ellipse({
+  addTo: head,
+  diameter: 15,
+  width: 15,
+  quarters: 2,
+  stroke: 2,
+  rotate: { z: - TAU/4 },
+  color: '#C25'
+});
+
+const earPhone = new Zdog.Hemisphere({
+  addTo: headPhones,
+  color: '#C25',
+  diameter: 3,
+  translate: { y: -7, x: -1 },
+  rotate: { x: TAU/4 }
+});
+
+earPhone.copy({
+  translate: { y: 7, x: -1 },
+  rotate: { x: -TAU/4 }
+});
+
+// Head follows mouse
+// TODO: debounce/throttle
+window.addEventListener('mousemove', (e) => {
+  const yDistance = e.pageY - illo.element.offsetTop - 200;
+  const xDistance = e.pageX - illo.element.offsetLeft - 150;
+  head.rotate.x = -yDistance/1000;
+  head.rotate.y = -xDistance/1000;
+});
+
+// -- animate --- //
+function animate() {
+  illo.updateRenderGraph();
+  requestAnimationFrame( animate );
+}
+animate();
